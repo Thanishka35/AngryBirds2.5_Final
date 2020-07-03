@@ -1,5 +1,5 @@
 class Chain{
-    constructo(bodyA, bodyB){
+    constructor(bodyA, bodyB){
         var options = {
             bodyA: bodyA,
             bodyB:bodyB,
@@ -7,7 +7,7 @@ class Chain{
             length: 10
         }
         this.chain = Constraint.create(options);
-        World.add(world,thisChain);
+        World.add(world,this.chain);
     }
 
     display(){
@@ -16,5 +16,5 @@ class Chain{
         strokeWeight(4);
         line(pointA.x, pointA.y, pointB.x, pointB.y);
     }
-    
+
 }
