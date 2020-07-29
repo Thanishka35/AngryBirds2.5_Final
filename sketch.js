@@ -1,7 +1,9 @@
+//Constants part of Matter.js
 const Engine = Matter.Engine;
 const World= Matter.World;
 const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
+
 
 var engine, world;
 var box1, pig1;
@@ -13,7 +15,6 @@ var bg = "sprites/bg1.png";
 var score = 0;
 
 function preload() {
-    //backgroundImg = loadImage("sprites/bg.png");
     getBackgroundImg();
 }
 
@@ -82,9 +83,9 @@ function draw(){
 }
 
 function mouseDragged(){
-   if(gameState!=="launched"){
+   //if(gameState!=="launched"){
     Matter.Body.setPosition(bird.body, {x: mouseX, y: mouseY});
-   }
+ // }
 }
 
 function mouseReleased(){
@@ -93,9 +94,11 @@ function mouseReleased(){
 }
 
 function keyPressed(){
-    if(keyCode === 32){
+    if(keyCode === 32 && bird.body.speed < 1){
+        bird.trajectory = []
+        Matter.Body.setPosition(bird.body, {x:200,y:50});
        slingShot.attach(bird.body);
-       gameState = "onsling";
+       //gameState = "onsling";
     }
 }
 
